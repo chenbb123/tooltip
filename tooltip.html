@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>工具提示</title>
+		<style type="text/css">
+			p .tooltip {
+				color: green;
+				position: relative;
+			}
+			p .tooltip::after {
+				content: attr(bate);
+				word-break: keep-all;
+				position: absolute;
+				padding: 4px 16px;
+				border-radius: 10px;
+				color: #fff;
+				background: #000;
+				left: calc(100% - 11px);
+				top: 35px;
+				border: 1px solid black;
+				/* 设置透明度 */
+				opacity: 0;
+				/* 设置过渡效果 */
+				transition: all 1s;
+			}
+			/* 设置鼠标悬停样式 */
+			/* 在哪个元素上设置hover */
+			p .tooltip:hover::after {
+				opacity: 1;
+			}
+			p .tooltip::before {
+				content: "";
+				width: 0;
+				height: 0;
+				border: 10px solid transparent;
+				border-right-color: black;
+				position: absolute;
+				z-index: 2;
+				left: calc(100% - 31px);
+				top: 50px;
+				/* 设置透明度 */
+				opacity: 0;
+				/* 设置过渡效果 */
+				transition: all 1s;
+			}
+			p .tooltip:hover::before {
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<p>草在结它的
+			<span bate="裸子植物和被子植物特有的繁殖体，它由胚珠经过传粉受精形成。" class="tooltip">
+				种子
+			</span>，风在摇它的叶子，我们站着不说话，就十分美好————
+			<span bate="代表作品：《一代人》《英儿》《白昼的月亮》《黑眼睛》《我是一个任性的孩子》等" class="tooltip">
+				顾城
+			</span>《门前》</p>
+	</body>
+</html>
